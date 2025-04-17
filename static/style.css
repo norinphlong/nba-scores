@@ -1,5 +1,5 @@
 body {
-    font-family: 'SF Pro', sans-serif;
+    font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
     background: linear-gradient(to right, rgb(29, 67, 80), rgb(164, 57, 49));
     color: #222;
     padding: 2rem;
@@ -7,10 +7,9 @@ body {
   }
   
   h1 {
-    font-size: 3rem;
+    font-size: 40px;
     color: #fff;
     margin-bottom: 2rem;
-    text-shadow: 1px 1px 0 #fff;
   }
   
   ul {
