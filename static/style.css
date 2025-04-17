@@ -1,0 +1,55 @@
+body {
+    font-family: 'SF Pro', sans-serif;
+    background: linear-gradient(to right, rgb(97, 67, 133), rgb(81, 99, 149));
+    color: #222;
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 3rem;
+    color: #fff;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 0 #fff;
+  }
+  
+  ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding: 0;
+    list-style: none;
+  }
+  
+  li {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transition: 0.3s;
+    color: #222;
+  }
+  
+  li:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 30px rgba(0, 191, 255, 0.2);
+  }
+  
+  li strong {
+    font-size: 1.4rem;
+    color: #000;
+  }
+  
+  li span {
+    font-size: 1rem;
+    color: #555;
+    display: block;
+    margin-top: 0.25rem;
+  }
+  .team img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    margin-right: 10px;
+  }
+  
