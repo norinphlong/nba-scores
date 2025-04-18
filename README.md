@@ -1,3 +1,3 @@
 # NBA Scores 
 
-A lightweight, minimal NBA live sports tracker application, currently a work in progress. 
+A lightweight, minimal NBA live sports tracker application, actively in development. 
