@@ -1,5 +1,7 @@
 from flask import Flask, render_template, jsonify
 from nba_api.live.nba.endpoints import scoreboard
+import pytz
+from datetime import datetime
 
 app = Flask(__name__)
 
@@ -59,12 +61,19 @@ def scores():
             else:
                 score_display = "N/A"
 
+            # Converting to user's local time
+            utc_time = datetime.strptime(game["gameTimeUTC"], "%Y-%m-%dT%H:%M:%SZ")
+            eastern = pytz.timezone("US/Eastern")
+            local_time = utc_time.replace(tzinfo=pytz.utc).astimezone(eastern)
+            time_str = local_time.strftime("%I:%M %p %Z")
+
             result.append({
                 "home": home_team,
                 "away": away_team,
                 "score": score_display,
                 "home_logo": team_logos.get(home_team, ""),
                 "away_logo": team_logos.get(away_team, ""),
+                "time": time_str,
                 "status": status_num
             })
         return jsonify(result)
