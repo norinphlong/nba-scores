@@ -48,13 +48,24 @@ def scores():
         for game in games:
             home_team = game["homeTeam"]["teamName"]
             away_team = game["awayTeam"]["teamName"]
+            status_num = game["gameStatus"]  # 1 = upcoming, 2 = live, 3 = finished
+
+            if status_num == 1:
+                score_display = "Upcoming"
+            elif status_num == 2:
+                score_display = f"{game['awayTeam']['score']} - {game['homeTeam']['score']} (Live)"
+            elif status_num == 3:
+                score_display = f"{game['awayTeam']['score']} - {game['homeTeam']['score']} (Final)"
+            else:
+                score_display = "N/A"
+
             result.append({
-                "home": game["homeTeam"]["teamName"],
-                "away": game["awayTeam"]["teamName"],
-                "score": f"{game['awayTeam']['score']} - {game['homeTeam']['score']}",
+                "home": home_team,
+                "away": away_team,
+                "score": score_display,
                 "home_logo": team_logos.get(home_team, ""),
                 "away_logo": team_logos.get(away_team, ""),
-                "is_live": game.get("status") == "Live"
+                "status": status_num
             })
         return jsonify(result)
     except Exception as e:
